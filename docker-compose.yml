@@ -11,8 +11,6 @@ services:
   apikey:
     build:
       dockerfile:  ${PROJECTDIR}${CONTEINERS}/keyapi/Dockerfile
-      args:
-        KEYAPI: /Users/snowball/Documents/on-the-go-tours/DOCKERTEST/Conteiners/keyapi
     container_name: apikey
     volumes:
       - ${PROJECTDIR}${CONTEINERS}/keyapi/apikey:/var/www/html
@@ -39,16 +37,16 @@ services:
     networks:
       - laravel-apikey
 
-  ## PHPmyadmin mysql-keyapi
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin:latest
-  #   restart: always
-  #   environment:
-  #     PMA_HOST: mysql-keyapi
-  #     PMA_PORT: 3306
-  #   ports:
-  #     - "8036:80"
-  #   depends_on:
-  #     - mysql-keyapi
-  #   networks:
-  #     - laravel-apikey
+  # PHPmyadmin mysql-keyapi
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: mysql-keyapi
+      PMA_PORT: 3306
+    ports:
+      - "8036:80"
+    depends_on:
+      - mysql-keyapi
+    networks:
+      - laravel-apikey

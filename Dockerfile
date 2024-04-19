@@ -15,12 +15,10 @@ RUN apt-get update && apt-get install -y \
 # Enable Apache modules required for Laravel.
 RUN a2enmod rewrite
 
-ARG KEYAPI
 
 # Set the Apache document root
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 ENV COMPOSER_ALLOW_SUPERUSER 1
-ENV KEYAPI_ $KEYAPI
 
 # Update the default Apache site configuration
 # COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
@@ -37,7 +35,6 @@ WORKDIR /var/www/html
 
 RUN echo "=============================="
 RUN echo $APACHE_DOCUMENT_ROOT
-RUN echo $KEYAPI_
 RUN pwd && ls
 RUN echo "=============================="
 
