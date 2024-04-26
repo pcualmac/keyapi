@@ -35,20 +35,20 @@ services:
       MYSQL_USER: keyapi
       MYSQL_PASSWORD: keyapi
     volumes:
-      - research-data:/var/lib/mysql
+      - ./mysql_data:/var/lib/mysql
     networks:
       - laravel-apikey
 
   ## PHPmyadmin mysql-keyapi
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin:latest
-  #   restart: always
-  #   environment:
-  #     PMA_HOST: mysql-keyapi
-  #     PMA_PORT: 3306
-  #   ports:
-  #     - "8036:80"
-  #   depends_on:
-  #     - mysql-keyapi
-  #   networks:
-  #     - laravel-apikey
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: mysql-keyapi
+      PMA_PORT: 3306
+    ports:
+      - "8036:80"
+    depends_on:
+      - mysql-keyapi
+    networks:
+      - laravel-apikey

@@ -2,18 +2,21 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthUser;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::prefix('v2')->group(function () {
+//     Route::prefix('app1')->group(function () {
+//         Route::post('login', [AppOneAuthController::class, 'login']);
+//     });
+//     Route::prefix('app2')->group(function () {
+//         Route::post('login', [AppTwoAuthController::class, 'login']);
+//     });
+// });
+
+Route::post('register/user',[AuthUser::class, 'registerUser']);
+Route::post('login/user',[AuthUser::class, 'loginUser']);
+
+Route::middleware(['auth:api'])->group(function () {
+    Route::get('verify/user',[AuthUser::class, 'verifyToken']);
 });
