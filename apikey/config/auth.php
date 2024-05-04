@@ -83,7 +83,9 @@ return [
         ],
         'appOne' => [
             'driver' => 'eloquent',
-            'model' => App\Models\AppOne\AppOneUser::class,
+            'model' => App\Models\AppUser::class,
+            'hash' => false,
+            'secret' => env('JWT_SECRET_APP1'),
         ],
 
         // 'users' => [
