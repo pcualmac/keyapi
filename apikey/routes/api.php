@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthUser;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::post('register/user',[AuthUser::class, 'registerUser']);
+Route::post('login/user',[AuthUser::class, 'loginUser']);
+
+Route::middleware(['auth:api'])->group(function () {
+    Route::get('verify/user',[AuthUser::class, 'verifyToken']);
 });
