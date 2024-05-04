@@ -2,8 +2,8 @@ version: '3.8'
 
 include:
   - path:
-    - ../../DOCKERCOMPONENT/docker-compose-net.yml
-    - ../../DOCKERCOMPONENT/docker-compose-volume.yml
+    - ../DOCKERCOMPONENT/docker-compose-net.yml
+    - ../DOCKERCOMPONENT/docker-compose-volume.yml
     env_file: .env
 
 services:
