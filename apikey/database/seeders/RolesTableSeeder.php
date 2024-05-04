@@ -17,25 +17,21 @@ class RolesTableSeeder extends Seeder
             'name' => 'Admin App1', 
             'slug' => 'admin-app1', 
             'description' => 'Administrator',
-            'application_id' =>1
         ]);
         Role::create([
             'name' => 'User App1', 
             'slug' => 'user-app1', 
             'description' => 'Regular User',
-            'application_id' =>1
         ]);
         Role::create([
             'name' => 'Admin App2', 
             'slug' => 'admin-app2', 
             'description' => 'Administrator',
-            'application_id' =>2
         ]);
         Role::create([
             'name' => 'User App2', 
             'slug' => 'user-app1-2', 
             'description' => 'Regular User',
-            'application_id' =>2
         ]);
     }
 }

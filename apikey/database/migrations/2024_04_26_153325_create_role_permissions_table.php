@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('app_role_permissions', function (Blueprint $table) {
+        Schema::create('role_permissions', function (Blueprint $table) {
             $table->foreignId('role_id');
             $table->foreignId('permission_id');
-            $table->foreignId('application_id')->constrained();
-            $table->primary(['role_id', 'permission_id', 'application_id']);
+            $table->primary(['role_id', 'permission_id']);
             $table->timestamps();
         });
     }
