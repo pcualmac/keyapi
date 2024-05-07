@@ -2,22 +2,22 @@ version: '3.8'
 
 include:
   - path:
-    - ../../DOCKERCOMPONENT/docker-compose-net.yml
-    - ../../DOCKERCOMPONENT/docker-compose-volume.yml
+    - ../DOCKERCOMPONENT/docker-compose-net.yml
+    - ../DOCKERCOMPONENT/docker-compose-volume.yml
     env_file: .env
 
 services:
   ##Laravel Application keyapi
   apikey:
     build:
-      dockerfile:  ${PROJECTDIR}${CONTEINERS}/keyapi/Dockerfile
+      dockerfile:  ./Dockerfile
     container_name: apikey
     volumes:
-      - ${PROJECTDIR}${CONTEINERS}/keyapi/apikey:/var/www/html
-      - ${PROJECTDIR}${CONTEINERS}/keyapi/apache-config.conf:/etc/apache2/sites-available/000-default.conf
-      - ${PROJECTDIR}${CONTEINERS}/keyapi/ports.conf:/etc/apache2/ports.conf
+      - ${PROJECTDIR}keyapi/apikey:/var/www/html
+      - ${PROJECTDIR}keyapi/apache-config.conf:/etc/apache2/sites-available/000-default.conf
+      - ${PROJECTDIR}keyapi/ports.conf:/etc/apache2/ports.conf
     ports:
-      - "8080:81"
+      - "8081:81"
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/public
     networks:
@@ -45,7 +45,7 @@ services:
       PMA_HOST: mysql-keyapi
       PMA_PORT: 3306
     ports:
-      - "8036:80"
+      - "8037:80"
     depends_on:
       - mysql-keyapi
     networks:
