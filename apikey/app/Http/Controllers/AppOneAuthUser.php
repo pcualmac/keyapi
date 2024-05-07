@@ -29,7 +29,10 @@ class AppOneAuthUser extends Controller
 
         $credentials = $request->only('email', 'password');
         try {
-            $token = auth()->guard('appOne')->attempt($credentials, ['secret' => $this->secretKey]);
+            $token = JWTAuth::setToken(JWTAuth::attempt($credentials, [], ['guard' => 'appOne']));
+
+            // $token = JWTAuth::guard('appOne')->attempt($credentials);
+
             if (!$token) {
                 return response()->json(['success' => false, 'error' => 'Some Error Message'], 401);
             }
@@ -37,10 +40,10 @@ class AppOneAuthUser extends Controller
             return response()->json(['success' => false, 'error' => 'Failed to login, please try again.'], 500);
         }
         $user = Auth::guard('appOne')->user();
-        $token = JWTAuth::customClaims(['type' => 'admin'])->fromUser($user, ['secret' => $this->secretKey]);
         $response =[
             'token' => $token,
-            'secretKey' => $this->secretKey
+            'secretKey' => $this->secretKey,
+            'user' => $user 
         ]; 
         return $this->finalResponse($response);
     }
