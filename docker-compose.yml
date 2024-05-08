@@ -22,6 +22,7 @@ services:
       - APACHE_DOCUMENT_ROOT=/var/www/html/public
     networks:
       - laravel-apikey
+      - laravel-apione
 
   ##MySQL Database keyapi
   mysql-keyapi:
@@ -36,6 +37,7 @@ services:
       - research-data:/var/lib/mysql
     networks:
       - laravel-apikey
+      - laravel-apione
 
   # PHPmyadmin mysql-keyapi
   phpmyadmin:
@@ -50,3 +52,4 @@ services:
       - mysql-keyapi
     networks:
       - laravel-apikey
+      - laravel-apione
