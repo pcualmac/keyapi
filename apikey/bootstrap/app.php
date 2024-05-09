@@ -15,5 +15,4 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->append(SetDynamicJWTSecretKey::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
     })->create();

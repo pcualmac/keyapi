@@ -84,6 +84,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\AppOne\AppUser::class,
             'secret' => env('JWT_SECRET_APP1'),
+            'identifier' => 'email', // Specify 'email' as the identifier
         ],
 
         // 'users' => [

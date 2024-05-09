@@ -20,7 +20,7 @@ use App\Http\Controllers\TestAuth;
 
     Route::post('register',[AppOneAuthUser::class, 'registerUser']);
     Route::post('login',[AppOneAuthUser::class, 'loginUser']);
-
+    // Route::get('verify',[AppOneAuthUser::class, 'verifyToken']);
     Route::middleware(['auth:appOne'])->group(function () {
         Route::get('verify',[AppOneAuthUser::class, 'verifyToken']);
     });

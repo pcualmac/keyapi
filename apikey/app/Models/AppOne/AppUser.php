@@ -82,8 +82,9 @@ class AppUser extends Authenticatable implements ShouldQueue , JWTSubject
      */
     public function getJWTCustomClaims()
     {
-       // $result = $this->roles()->get();
-        //return $result->toArray();
-        return [];
+        $result = $this->roles()->get();
+        $result['email'] = $this->email;
+        return $result->toArray();
+        // return [];
     }
 }
