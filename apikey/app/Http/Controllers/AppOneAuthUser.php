@@ -35,10 +35,10 @@ class AppOneAuthUser extends Controller
         // dd($this->secretKey);
         // Set the custom secret key for the guard
         config(['jwt.secret' => $this->secretKey]);
+        $customClaims = []; 
 
-
-        if ($guard->attempt($credentials)) {
-            $token = JWTAuth::fromUser($guard->user());
+        if ($guard->claims($customClaims)->attempt($credentials)) {
+            $token = JWTAuth::fromUser($guard->user(), ['email' => $guard->user()->email]);
             return response()->json(['token' => $token], 200);
         } else {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -77,21 +77,21 @@ class AppOneAuthUser extends Controller
 
     public function verifyToken(Request $request)
     {
+        
         $token = $request->bearerToken(); // Get the token from the request
         if (!$token) {
             return response()->json(['error' => 'Token not provided'], 401);
         }
 
         // Specify the guard
-        $guard = Auth::guard('appOne'); // Assuming you are using 'api' guard
+        $guard = Auth::guard('appOne'); // Assuming you are using 'appOne' guard
 
         // Set the custom secret key for the guard
         config(['jwt.secret' => $this->secretKey]);
-        // dd($token);
-
+        $customClaims=[];
         try {
             // Verify the token
-            $user = $guard->authenticate($token);
+            $user = $guard->claims($customClaims)->authenticate($token);
             
             if (!$user) {
                 return response()->json(['error' => 'Unauthorized'], 401);
@@ -102,9 +102,22 @@ class AppOneAuthUser extends Controller
             return response()->json(['error' => 'Token is invalid'], 401);
         } catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
             return response()->json(['error' => 'Token is absent'], 401);
+        } catch (JWTException $e) {
+            return response()->json(['error' => $e->print], 500);
         }
-
+        $payload = JWTAuth::setToken($token)->getPayload();
+        // Retrieve specific claims from the payload
+        $userId = $payload->get('sub'); // Retrieves the 'sub' claim (subject)
+        $issuedAt = $payload->get('iat'); // Retrieves the 'iat' claim (issued at)
+        $email = $payload->get('email'); // Retrieves the 'iat' claim (issued at)
+        $response = [
+            'user' => $user,
+            'userId' => $userId,
+            'issuedAt' => $issuedAt,
+            'email' => $email,
+            'custom_claim' => $user->getJWTCustomClaims(),
+        ];
         // Token is valid
-        return response()->json(['user' => $user], 200);
+        return response()->json(['response' => $response], 200);
     }
 }
