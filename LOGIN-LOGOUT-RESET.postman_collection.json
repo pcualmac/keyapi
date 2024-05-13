@@ -1,0 +1,1042 @@
+{
+	"info": {
+		"_postman_id": "f8c341d1-7b9e-40f6-98e6-235336525c17",
+		"name": "LOGIN-LOGOUT-RESET",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5318638"
+	},
+	"item": [
+		{
+			"name": "keyApiyes",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "register admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "amirnagy8846@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "amir",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}register/admin",
+									"host": [
+										"{{url}}register"
+									],
+									"path": [
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"koch.tristin@example.org\",\n    \"password\" : \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}login/user",
+									"host": [
+										"{{url}}login"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"sebastian.koelpin@example.com\",\n    \"password\" : \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}admin/login",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "register user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "amirnagy886@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "amir",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}register/user",
+									"host": [
+										"{{url}}register"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AdminverifyToken",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luL3VzZXIiLCJpYXQiOjE3MTQxMTkwNTYsImV4cCI6MTcxNDEyMjY1NiwibmJmIjoxNzE0MTE5MDU2LCJqdGkiOiJia2NuZFlRYjljem12cjB6Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.MIKDQkv-1XcM0foFY1qB1sS33GpOgYlNnwAZ6jHvVYU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}admin/verify",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"verify"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UserverifyToken",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luL3VzZXIiLCJpYXQiOjE3MTQxMjAwOTYsImV4cCI6MTcxNDEyMzY5NiwibmJmIjoxNzE0MTIwMDk2LCJqdGkiOiI4NDl3QnFIcUl4TGpJYTBRIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.Fn82SQ9RNG6YttzhP9YtPLcc7WrxlBEzmg5LlfJtd-k",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}verify/user",
+									"host": [
+										"{{url}}verify"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "app1-auth",
+					"item": [
+						{
+							"name": "register admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}app1/register/admin",
+									"host": [
+										"{{url}}app1"
+									],
+									"path": [
+										"register",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AdminverifyToken",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2FwcDEvYWRtaW4vbG9naW4iLCJpYXQiOjE3MTQxMjc1MDksImV4cCI6MTcxNDEzMTEwOSwibmJmIjoxNzE0MTI3NTA5LCJqdGkiOiI2Q1hoUlg5blBGZVg1TnpzIiwic3ViIjoiMSIsInBydiI6IjUwZDAxZWU2ZTM2MzdkNWFiOTFjODkxMmI3MjQzZmZhNjVjYjMyODIifQ.8Duzq4itsMDlD25CWksTrWckLCEUMDelyMMElaYlbiY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}app1/admin/verify",
+									"host": [
+										"{{url}}app1"
+									],
+									"path": [
+										"admin",
+										"verify"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "App1UserverifyToken",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2FwcDEvYWRtaW4vbG9naW4iLCJpYXQiOjE3MTQxMjczNDYsImV4cCI6MTcxNDEzMDk0NiwibmJmIjoxNzE0MTI3MzQ2LCJqdGkiOiIwYnc0MUdpVUJCUmpIeWkzIiwic3ViIjoiMSIsInBydiI6IjUwZDAxZWU2ZTM2MzdkNWFiOTFjODkxMmI3MjQzZmZhNjVjYjMyODIifQ.4JrpP6XUKoIuuT0q8jhk9NAo_7qd_eeqCL2g8cIa9bM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}app1/user/verify",
+									"host": [
+										"{{url}}app1"
+									],
+									"path": [
+										"user",
+										"verify"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "app1 login user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"marques41@example.org\",\n    \"password\" : \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}app1/user/login",
+									"host": [
+										"{{url}}app1"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "app1 login admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"rpadberg@example.com\",\n    \"password\" : \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}app1/admin/login",
+									"host": [
+										"{{url}}app1"
+									],
+									"path": [
+										"admin",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "register user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "amirnagy886@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "amir",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}app1/register/user",
+									"host": [
+										"{{url}}app1"
+									],
+									"path": [
+										"register",
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "keyApiyesJWTRoles",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "register admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "amirnagy8846@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "amir",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}register/admin",
+									"host": [
+										"{{url}}register"
+									],
+									"path": [
+										"admin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"mitchell.gerda@example.org\",\n    \"password\" : \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}login/user",
+									"host": [
+										"{{url}}login"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"daisha19@example.com\",\n    \"password\" : \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}admin/login",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "register user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "amirnagy886@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "amir",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}register/user",
+									"host": [
+										"{{url}}register"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AdminverifyToken",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNzE0NDAwODc3LCJleHAiOjE3MTQ0MDQ0NzcsIm5iZiI6MTcxNDQwMDg3NywianRpIjoiRDVmTGRwZUdGV1FlVFppRSIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.RHjxAvaQ5O_JZWlv30__jMV1Q76rOhXBS8e5TAE41sk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}admin/verify",
+									"host": [
+										"{{url}}admin"
+									],
+									"path": [
+										"verify"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UserverifyToken",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luL3VzZXIiLCJpYXQiOjE3MTQ0MDA4MzgsImV4cCI6MTcxNDQwNDQzOCwibmJmIjoxNzE0NDAwODM4LCJqdGkiOiJXUHBWdFVuVDhXb2VPNXRFIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.GV0ZbF_j6l-zk5MuO5zQHhr2mEDoPPGGgK3D4tp41Ac",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}verify/user",
+									"host": [
+										"{{url}}verify"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "app1-auth",
+					"item": [
+						{
+							"name": "App1UserverifyToken",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODEvYXBpL2FwcDEvbG9naW4iLCJpYXQiOjE3MTUyNTMxMjQsImV4cCI6MTcxNTI1NjcyNCwibmJmIjoxNzE1MjUzMTI0LCJqdGkiOiJvcUdSSWZhSHA1RXlyZEhmIiwic3ViIjoidGVzdEBleGFtcGxlLmNvbSIsInBydiI6IjcxZDliZGE1YzBmMjY1NTlhOTVmMmIzYTc2ZTAyOWE4MmVkMGJhYTIiLCJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20ifQ.4UrAYzH5bZ9XgRLG4bIMtC7bTdHxsu4wXwTl2jP1zZM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}app1/verify",
+									"host": [
+										"{{url}}app1"
+									],
+									"path": [
+										"verify"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "app1 login user Test",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"marcelle.little@example.net\",\n    \"password\" : \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}app1/login",
+									"host": [
+										"{{url}}app1"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "app1 login user diff id",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"marcelle.little@example.net\",\n    \"password\" : \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}app1/login",
+									"host": [
+										"{{url}}app1"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "register user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "amirnagy886@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "amir",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}app1/register/user",
+									"host": [
+										"{{url}}app1"
+									],
+									"path": [
+										"register",
+										"user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ApiOneJWTRoles",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "UserverifyToken",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwiaWF0IjoxNzE1MTcyMTk1LCJleHAiOjE3MTUxNzU3OTUsIm5iZiI6MTcxNTE3MjE5NSwianRpIjoiWjR6U3dEcnZ6UDZDY0NmbyIsInN1YiI6IjEiLCJwcnYiOiI3MWQ5YmRhNWMwZjI2NTU5YTk1ZjJiM2E3NmUwMjlhODJlZDBiYWEyIn0.uU1Z4blvJg2W393SzhyjUi30djaxdSjewUrBYgz5ihU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlapione}}app1/verify",
+									"host": [
+										"{{urlapione}}app1"
+									],
+									"path": [
+										"verify"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "app1 login user Test",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"wschaden@example.net\",\n    \"password\" : \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlapione}}login",
+									"host": [
+										"{{urlapione}}login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "app1 login user diff id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3MTUzMDg4LCJleHAiOjE3MzM0NDEwODgsIm5iZiI6MTY5NzE1MzA4OCwianRpIjoiNzltcXdJcUE2R0ZvNDRNbyIsInN1YiI6IjIiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.UGn9H4U4tX8Fbal2ApzYev_thVocgfyJiUUFmzmTH6g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"wschaden@example.net\",\n    \"password\" : \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{urlapione}}login",
+									"host": [
+										"{{urlapione}}login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
