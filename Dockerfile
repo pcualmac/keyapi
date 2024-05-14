@@ -12,6 +12,9 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
 # Enable Apache modules required for Laravel.
 RUN a2enmod rewrite
 
@@ -29,6 +32,9 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
 
 # Install Composer globally.
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Install Codeception globally
+RUN composer global require "codeception/codeception"
 
 # Create a directory for your Laravel application.
 WORKDIR /var/www/html

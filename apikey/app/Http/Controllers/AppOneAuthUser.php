@@ -31,11 +31,11 @@ class AppOneAuthUser extends Controller
     {
         $credentials = $request->only('email', 'password');
         // Specify the guard
-        $guard = Auth::guard('appOne'); 
+        $guard = Auth::guard('appOne');
         // dd($this->secretKey);
         // Set the custom secret key for the guard
         config(['jwt.secret' => $this->secretKey]);
-        $customClaims = []; 
+        $customClaims = [];
 
         if ($guard->claims($customClaims)->attempt($credentials)) {
             $token = JWTAuth::fromUser($guard->user(), ['email' => $guard->user()->email]);
@@ -77,7 +77,7 @@ class AppOneAuthUser extends Controller
 
     public function verifyToken(Request $request)
     {
-        
+
         $token = $request->bearerToken(); // Get the token from the request
         if (!$token) {
             return response()->json(['error' => 'Token not provided'], 401);
@@ -92,7 +92,7 @@ class AppOneAuthUser extends Controller
         try {
             // Verify the token
             $user = $guard->claims($customClaims)->authenticate($token);
-            
+
             if (!$user) {
                 return response()->json(['error' => 'Unauthorized'], 401);
             }

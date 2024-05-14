@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.2'
 
 include:
   - path:
@@ -16,6 +16,7 @@ services:
       - ${PROJECTDIR}keyapi/apikey:/var/www/html
       - ${PROJECTDIR}keyapi/apache-config.conf:/etc/apache2/sites-available/000-default.conf
       - ${PROJECTDIR}keyapi/ports.conf:/etc/apache2/ports.conf
+      - ${PROJECTDIR}keyapi/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
     ports:
       - "8081:81"
     environment:
@@ -36,7 +37,7 @@ services:
     volumes:
       - research-data:/var/lib/mysql
     networks:
-      - laravel-apikey
+      - db-networks
       - laravel-apione
 
   # PHPmyadmin mysql-keyapi
