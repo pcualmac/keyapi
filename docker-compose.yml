@@ -13,7 +13,7 @@ services:
       dockerfile:  ./Dockerfile
     container_name: apikey
     volumes:
-      - ${PROJECTDIR}keyapi/apikey:/var/www/html
+      # - ${PROJECTDIR}keyapi/apikey:/var/www/html
       - ${PROJECTDIR}keyapi/apache-config.conf:/etc/apache2/sites-available/000-default.conf
       - ${PROJECTDIR}keyapi/ports.conf:/etc/apache2/ports.conf
       - ${PROJECTDIR}keyapi/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini

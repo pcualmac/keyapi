@@ -26,18 +26,29 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 # Update the default Apache site configuration
 # COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
 
+COPY ./apikey /var/www/html
+
 # Install PHP extensions.
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd pdo pdo_mysql
 
-# Install Composer globally.
+# Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Install Composer dependencies
+RUN composer install
 
 # Install Codeception globally
 RUN composer global require "codeception/codeception"
 
+# Add Composer binaries to PATH
+ENV PATH="/root/.composer/vendor/bin:${PATH}"
+
 # Create a directory for your Laravel application.
 WORKDIR /var/www/html
+
+RUN composer require codeception/module-laravel codeception/module-rest codeception/module-webdriver codeception/module-asserts --dev
+
 
 RUN echo "=============================="
 RUN echo $APACHE_DOCUMENT_ROOT
