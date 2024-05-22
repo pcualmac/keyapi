@@ -1,0 +1,143 @@
+name: keyapi
+services:
+  apikey:
+    build:
+      context: /Users/snowball/Documents/noVpn/keyapi
+      dockerfile: dockerfiles/apache.dockerfile
+    container_name: apikey
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html/public
+    networks:
+      db-networks: null
+      laravel-apikey: null
+      redis-mailhog: null
+    ports:
+      - mode: ingress
+        target: 81
+        published: "8081"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: /Users/snowball/Documents/noVpn/keyapi/apikey
+        target: /var/www/html
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /Users/snowball/Documents/noVpn/keyapi/apache/apache-config.conf
+        target: /etc/apache2/sites-available/000-default.conf
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /Users/snowball/Documents/noVpn/keyapi/apache/ports.conf
+        target: /etc/apache2/ports.conf
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /Users/snowball/Documents/noVpn/keyapi/dockerfiles/xdebug.ini
+        target: /usr/local/etc/php/conf.d/xdebug.ini
+        bind:
+          create_host_path: true
+  artisan:
+    build:
+      context: /Users/snowball/Documents/noVpn/keyapi
+      dockerfile: dockerfiles/php.dockerfile
+    depends_on:
+      apikey:
+        condition: service_started
+        required: true
+      composer:
+        condition: service_started
+        required: true
+    entrypoint:
+      - php
+      - /var/www/html/artisan
+    networks:
+      db-networks: null
+      laravel-apikey: null
+      redis-mailhog: null
+    volumes:
+      - type: bind
+        source: /Users/snowball/Documents/noVpn/keyapi/apikey
+        target: /var/www/html
+        bind:
+          create_host_path: true
+  composer:
+    build:
+      context: /Users/snowball/Documents/noVpn/keyapi/dockerfiles
+      dockerfile: composer.dockerfile
+    depends_on:
+      apikey:
+        condition: service_started
+        required: true
+    networks:
+      laravel-apikey: null
+    volumes:
+      - type: bind
+        source: /Users/snowball/Documents/noVpn/keyapi/apikey
+        target: /var/www/html
+        bind:
+          create_host_path: true
+  mysql-keyapi:
+    container_name: mysql-keyapi
+    environment:
+      MYSQL_DATABASE: keyapi
+      MYSQL_PASSWORD: keyapi
+      MYSQL_ROOT_PASSWORD: keyapi
+      MYSQL_USER: keyapi
+    image: mysql:8
+    networks:
+      db-networks: null
+      laravel-apikey: null
+    volumes:
+      - type: volume
+        source: research-data
+        target: /var/lib/mysql
+        volume: {}
+  phpmyadmin:
+    depends_on:
+      mysql-keyapi:
+        condition: service_started
+        required: true
+    environment:
+      PMA_HOST: mysql-keyapi
+      PMA_PORT: "3306"
+    image: phpmyadmin/phpmyadmin:latest
+    networks:
+      db-networks: null
+      laravel-apikey: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8037"
+        protocol: tcp
+    restart: always
+  scheduler:
+    build:
+      context: /Users/snowball/Documents/noVpn/keyapi
+      dockerfile: dockerfiles/php.dockerfile
+    container_name: scheduler_laravel_enviroment
+    entrypoint:
+      - php
+      - artisan
+      - schedule:work
+    networks:
+      laravel-apikey: null
+    volumes:
+      - type: bind
+        source: /Users/snowball/Documents/noVpn/keyapi/apikey
+        target: /var/www/html
+        bind:
+          create_host_path: true
+    working_dir: /var/www/html
+networks:
+  db-networks:
+    name: db-networks
+    external: true
+  laravel-apikey:
+    name: keyapi_laravel-apikey
+  redis-mailhog:
+    name: redis-mailhog
+    external: true
+volumes:
+  research-data:
+    name: research-data

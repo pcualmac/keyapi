@@ -10,20 +10,63 @@ services:
   ##Laravel Application keyapi
   apikey:
     build:
-      dockerfile:  ./Dockerfile
+      context: .
+      dockerfile:  dockerfiles/apache.dockerfile
     container_name: apikey
     volumes:
-      # - ${PROJECTDIR}keyapi/apikey:/var/www/html
-      - ${PROJECTDIR}keyapi/apache-config.conf:/etc/apache2/sites-available/000-default.conf
-      - ${PROJECTDIR}keyapi/ports.conf:/etc/apache2/ports.conf
-      - ${PROJECTDIR}keyapi/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - ${PROJECTDIR}keyapi/apikey:/var/www/html
+      - ${PROJECTDIR}keyapi/apache/apache-config.conf:/etc/apache2/sites-available/000-default.conf
+      - ${PROJECTDIR}keyapi/apache/ports.conf:/etc/apache2/ports.conf
+      - ${PROJECTDIR}keyapi/dockerfiles/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
     ports:
       - "8081:81"
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/public
     networks:
       - laravel-apikey
-      - laravel-apione
+      - db-networks
+      - redis-mailhog
+
+  composer:
+    build:
+      context: ./dockerfiles
+      dockerfile: composer.dockerfile
+    volumes:
+      - ./apikey:/var/www/html
+    depends_on:
+      - apikey
+    networks:
+      - laravel-apikey
+  
+  ##Laravel Application keyapi
+  artisan:
+    build:
+      context: .
+      dockerfile: dockerfiles/php.dockerfile
+    depends_on:
+      - apikey
+      - composer
+    volumes:
+      - ./apikey:/var/www/html
+    entrypoint: ["php", "/var/www/html/artisan"]
+      #depends_on:
+    #- mysql
+    networks:
+      - laravel-apikey
+      - db-networks
+      - redis-mailhog
+
+  scheduler:
+    build:
+      context: .
+      dockerfile: dockerfiles/php.dockerfile
+    container_name: scheduler_laravel_enviroment
+    volumes:
+      - ./apikey:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: [ "php", "artisan", "schedule:work" ]
+    networks:
+      - laravel-apikey
 
   ##MySQL Database keyapi
   mysql-keyapi:
@@ -38,7 +81,7 @@ services:
       - research-data:/var/lib/mysql
     networks:
       - db-networks
-      - laravel-apione
+      - laravel-apikey
 
   # PHPmyadmin mysql-keyapi
   phpmyadmin:
@@ -53,4 +96,4 @@ services:
       - mysql-keyapi
     networks:
       - laravel-apikey
-      - laravel-apione
+      - db-networks

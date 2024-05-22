@@ -51,7 +51,11 @@ return [
         'appOne' => [
             'driver' => 'jwt',
             'provider' => 'appOne',
-        ]
+        ],
+        'sanctum' => [
+            'driver' => 'sanctum',
+            'provider' => 'users',
+        ],
     ],
 
     /*
@@ -85,12 +89,7 @@ return [
             'model' => App\Models\AppOne\AppUser::class,
             'secret' => env('JWT_SECRET_APP1'),
             'identifier' => 'email', // Specify 'email' as the identifier
-        ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        ]
     ],
 
     /*

@@ -1,0 +1,9 @@
+actor: ApiTester
+suite_namespace: Tests\Api
+step_decorators:
+    - \Codeception\Step\AsJson
+modules:
+    enabled:
+        - REST:
+            url: /api/
+            depends: Laravel
